@@ -7,16 +7,19 @@ public class Anfibio extends Vehiculo implements Terrestre, Acuatico {
 
 	public Anfibio() {
 		this.profundidad=0.0;
+		this.velocidad=0.0;
 	}
 
 	public Anfibio(Integer codigo, String modelo) {
 		super(codigo, modelo);
 		this.profundidad=0.0;
+		this.velocidad=0.0;
 	}
 	
 	public Anfibio(String codigo, String modelo) {
 		super(codigo, modelo);
 		this.profundidad=0.0;
+		this.velocidad=0.0;
 	}
 
 	@Override

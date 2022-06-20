@@ -50,10 +50,4 @@ public class HidroAvion extends Vehiculo implements Volador, Acuatico {
 		this.altura = altura;
 	}
 
-	@Override
-	public String toString() {
-		return "HidroAvion [profundidad=" + profundidad + ", altura=" + altura + "]";
-	}
-	
-
 }

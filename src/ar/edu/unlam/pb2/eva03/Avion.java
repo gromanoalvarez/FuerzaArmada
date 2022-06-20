@@ -26,8 +26,7 @@ public class Avion extends Vehiculo implements Volador {
 
 	@Override
 	public Double getAltura() {
-		// TODO Auto-generated method stub
-		return null;
+		return altura;
 	}
 
 	public void setAltura(Double altura) {

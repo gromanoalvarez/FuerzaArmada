@@ -52,7 +52,12 @@ public class Vehiculo {
 			return false;
 		return true;
 	}
-	
 
+	@Override
+	public String toString() {
+		return "Vehiculo [codigo=" + codigo + ", modelo=" + modelo + "] \n";
+	}
+
+	
 	
 }

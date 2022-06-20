@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class FuerzaArmada {
 
-	private Set<Vehiculo> convoy; // El convoy es el conjunto de Vehículos que disponen (no importa el tipo de vehículo).
+	private HashSet<Vehiculo> convoy; // El convoy es el conjunto de Vehículos que disponen (no importa el tipo de vehículo).
 	//Map<Key,Value> nombreColeccion
 	private Map<String, Batalla> batallas;
 	//para la Clave o Key en este caso es String pero si fuera Object deberia hacer  @Override del equals y hashCode (Y ADEMAS implements Comparable con el metodo compareTo si es un TreeSet)
@@ -23,8 +23,11 @@ public class FuerzaArmada {
 		convoy.add(nuevo);
 	}
 
-	public HashSet<Vehiculo> getCapacidadDeDefensa() {
-		return (HashSet<Vehiculo>) convoy;
+	public Integer getCapacidadDeDefensa() {
+		return  convoy.size();
+	}
+	public HashSet<Vehiculo> getConjuntoDefensa() {
+		return  convoy;
 	}
 
 	//2. Las batallas se identifican unívocamente por su nombre. (En este caso como es String no hace falta sobreescribir equals o hashcode)
@@ -54,7 +57,7 @@ public class FuerzaArmada {
 		b. En las batallas por tierra se podrán utilizar Vehículos Terrestre.
 		c. En las batallas por agua sólo se podrán utilizar Vehículos Acuáticos.
 		*/
-	public boolean enviarALaBatalla(String nombreDeBatalla, Integer codigoVehiculo) {
+	public boolean enviarALaBatalla(String nombreDeBatalla, Integer codigoVehiculo) throws VehiculoInexistente, VehiculoIncompatible{
 		Batalla batallaDeseada = getBatalla(nombreDeBatalla);
 
 		for(Vehiculo v : convoy) { //Para enviar un Vehículo a una batalla se debe confirmar que el mismo forme parte de la fuerza.
@@ -68,10 +71,12 @@ public class FuerzaArmada {
 				}else if(v instanceof Acuatico && batallaDeseada.getTipo().equals(TipoDeBatalla.NAVAL)) {
 					batallaDeseada.asignarVehiculoABatalla(v);
 					return true;
+				}else {
+					throw new VehiculoIncompatible();
 				}
-			}	
+			}
 		}
-		return false;
+		throw new VehiculoInexistente();
 	}
 
 }
