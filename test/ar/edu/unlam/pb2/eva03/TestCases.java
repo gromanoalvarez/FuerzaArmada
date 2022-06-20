@@ -10,49 +10,49 @@ public class TestCases {
 
 	@Test
 	public void queSePuedaCrearUnObjetoVolador() {
-		//Vehiculo avion = new Volador();
+		//Vehiculo avion = new Volador(); NO SE PUEDE INSTANCIAR UNA INTERFAZ
 		Volador avion = new Avion(1, "A-10");
 
-		assertEquals(0.0, avion.getAltura());
+		//assertEquals(0.0, avion.getAltura()); metodo assertEquals en deprecate
 		assertEquals(0.0, avion.getAltura(), 0.01);
 	}
 
 	@Test
 	public void queSePuedaCrearUnObjetoTerrestre() {
-		Vehiculo tanque = new Terrestre();
+		//Vehiculo tanque = new Terrestre();NO SE PUEDE INSTANCIAR UNA INTERFAZ
 		Terrestre tanque = new Tanque(5, "Renault FT");
 
-		assertEquals(0.0, tanque.getVelocidad());
+		//assertEquals(0.0, tanque.getVelocidad());metodo assertEquals en deprecate
 		assertEquals(0.0, tanque.getVelocidad(), 0.1);
 	}
 
 	@Test
 	public void queSePuedaCrearUnObjetoAcuatico() {
-		Vehiculo submarino = new Acuatico();
+		//Vehiculo submarino = new Acuatico();NO SE PUEDE INSTANCIAR UNA INTERFAZ
 		Acuatico submarino = new Submarino(8, "ARA - San Juan");
 
-		assertEquals(0.0, submarino.getProfundidad());
+		//assertEquals(0.0, submarino.getProfundidad());metodo assertEquals en deprecate
 		assertEquals(0.0, submarino.getProfundidad(), 0.01);
 	}
 
 	@Test
 	public void queSePuedaCrearUnObjetoAnfibio() {
-		Vehiculo var = new Anfibio();
+		//Vehiculo var = new Anfibio(); duplica la variable var
 		Anfibio var = new Anfibio(12, "LARC-5");
 
-		assertEquals(0.0, var.getVelocidad());
-		assertEquals(0.0, var.getProfundidad());
+		//assertEquals(0.0, var.getVelocidad());metodo assertEquals en deprecate
+		//assertEquals(0.0, var.getProfundidad());metodo assertEquals en deprecate
 		assertEquals(0.0, var.getVelocidad(), 0.01);
 		assertEquals(0.0, var.getProfundidad(), 0.01);
 	}
 
 	@Test
 	public void queSePuedaCrearUnHidroavion() {
-		Vehiculo ag600 = new HidroAvion();
+		//Vehiculo ag600 = new HidroAvion(); duplica la variable var
 		HidroAvion ag600 = new HidroAvion(12, "AG600");
 
-		assertEquals(0.0, ag600.getAltura()); //GETALTITUD DECIA
-		assertEquals(0.0, ag600.getProfundidad());
+		//assertEquals(0.0, ag600.getAltura()); GETALTITUD DECIA igual esta en deprecate
+		//assertEquals(0.0, ag600.getProfundidad()); deprecate
 		assertEquals(0.0, ag600.getAltura(), 0.01);
 		assertEquals(0.0, ag600.getProfundidad(), 0.01);
 	}
@@ -72,7 +72,7 @@ public class TestCases {
 		argentina.agregarVehiculo(new Portaviones("0009", "A-10"));
 		argentina.agregarVehiculo(new Destructor("0010", "A-10"));
 		argentina.agregarVehiculo(new Destructor("0011", "A-10"));
-		argentina.agregarVehiculo(new Hidroavion("0012", "A-10"));
+		argentina.agregarVehiculo(new HidroAvion("0012", "A-10"));//decia Hidroavion pero es HidroAvion
 		argentina.agregarVehiculo(new Anfibio("0012", "A-10"));
 		argentina.agregarVehiculo(new Avion(1, "A-10"));
 		argentina.agregarVehiculo(new Avion(2, "A-10"));
