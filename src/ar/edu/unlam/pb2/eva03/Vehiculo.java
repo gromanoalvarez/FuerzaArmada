@@ -42,8 +42,8 @@ public class Vehiculo {
 			return true;
 		if (obj == null)
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
+		//if (getClass() != obj.getClass()) SE COMENTA PARA QUE APLIQUE CORRECTAMENTE EL CRITERIO
+		//	return false;
 		Vehiculo other = (Vehiculo) obj;
 		if (codigo == null) {
 			if (other.codigo != null)

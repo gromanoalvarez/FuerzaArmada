@@ -88,6 +88,7 @@ public class TestCases {
 		argentina.agregarVehiculo(new HidroAvion(12, "Mitsubishi F1M"));
 		argentina.agregarVehiculo(new Anfibio(12, "LARC-5"));
 
+		//agregado para verificar
 		System.out.println(argentina.getConjuntoDefensa());
 		//assertEquals((12, argentina.getCapacidadDeDefensa());
 		assertEquals((Integer)12, argentina.getCapacidadDeDefensa());
