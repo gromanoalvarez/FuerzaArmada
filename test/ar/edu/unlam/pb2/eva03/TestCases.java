@@ -1,10 +1,10 @@
 package ar.edu.unlam.pb2.eva03;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
-
-import ar.edu.unlam.pb2.eva03.enumeradores.TipoDeBatalla;
 
 public class TestCases {
 
@@ -97,7 +97,7 @@ public class TestCases {
 		FuerzaArmada argentina = new FuerzaArmada();
 
 		argentina.crearBatalla("San Lorenzo", TipoDeBatalla.TERRESTRE, 100.5, 20.3); //Pretende que se puedan cargar 2 batallas iguales? 
-		argentina.crearBatalla("San Lorenzo", TipoDeBatalla.TERRESTRE, 100.5, 20.3); //No se puede porque es un Map donde la clave no se puede repetir. En este caso la key es un String por eso no hacia falta sobreescribir el equals y hashCode
+		argentina.crearBatalla("San Lorenzo", TipoDeBatalla.TERRESTRE, 100.5, 20.3); //No se puede porque es un Map donde la clave no se puede repetir. Si la key es un String no hacia falta sobreescribir el equals y hashCode
 		/*
 		assertEquals(100.5, argentina.getBatalla("San Lorenzo").getLatitud()); deprecate
 		assertEquals(20.3, argentina.getBatalla("San Lorenzo").getLongitud()); deprecate
@@ -123,16 +123,16 @@ public class TestCases {
 		argentina.agregarVehiculo(new Portaviones("0009", "A-10"));
 		argentina.agregarVehiculo(new Destructor("0010", "A-10"));
 		argentina.agregarVehiculo(new Destructor("0011", "A-10"));
-		argentina.agregarVehiculo(new HidroAvion("0012", "A-10")); //mal tipeado : decia Hidroavion es HidroAvion
+		argentina.agregarVehiculo(new HidroAvion("0012", "A-10")); //error tipeado decia Hidroavion es HidroAvion
 		argentina.agregarVehiculo(new Anfibio("0012", "A-10"));
 
-		argentina.crearBatalla("Terrestre", 100.5, 20.3, "San Lorenzo")
+		argentina.crearBatalla("Terrestre", 100.5, 20.3, "San Lorenzo"); //error tipeado faltaba ; - Este crearBatalla necesita sobreescribir metodo con nuevos parametros
 
 		argentina.agregarVehiculo(new Tanque(5, "Renault FT"));
 		argentina.agregarVehiculo(new Camion(6, "T-72"));
 		argentina.agregarVehiculo(new Camion(7, "T-72"));
 
-		argentina.presentarBatalla()
+		argentina.presentarBatalla(); //error tipeado faltaba ;  ... Que accion deberia hacer este metodo?
 		argentina.crearBatalla("San Lorenzo", TipoDeBatalla.TERRESTRE, 100.5, 20.3);
 
 		assertTrue(argentina.enviarALaBatalla("San Lorenzo", 5));
