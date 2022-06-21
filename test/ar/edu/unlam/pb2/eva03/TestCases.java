@@ -73,7 +73,7 @@ public class TestCases {
 		argentina.agregarVehiculo(new Destructor("0010", "A-10"));
 		argentina.agregarVehiculo(new Destructor("0011", "A-10"));
 		argentina.agregarVehiculo(new HidroAvion("0012", "A-10"));//decia Hidroavion pero es HidroAvion
-		argentina.agregarVehiculo(new Anfibio("0012", "A-10"));// !!! ???? xq lo agrega !!!! ????
+		argentina.agregarVehiculo(new Anfibio("0012", "A-10"));// !!! Si no se borra la linea del equals (getClass() != obj.getClass()) lo agrega !!!! 
 		argentina.agregarVehiculo(new Avion(1, "A-10"));
 		argentina.agregarVehiculo(new Avion(2, "A-10"));
 		argentina.agregarVehiculo(new Avion(3, "F-102"));
@@ -88,8 +88,7 @@ public class TestCases {
 		argentina.agregarVehiculo(new HidroAvion(12, "Mitsubishi F1M"));
 		argentina.agregarVehiculo(new Anfibio(12, "LARC-5"));
 
-		//agregado para verificar
-		System.out.println(argentina.getConjuntoDefensa());
+		//agregado para verificar		System.out.println(argentina.getConjuntoDefensa());
 		//assertEquals((12, argentina.getCapacidadDeDefensa());
 		assertEquals((Integer)12, argentina.getCapacidadDeDefensa());
 	}
@@ -110,7 +109,7 @@ public class TestCases {
 	}	
 
 	@Test
-	// public void queSePuedaPlanearLaBatallaSobreElOceano() { @Test METODO Desarrollado a continuacion de este
+	// public void queSePuedaPlanearLaBatallaSobreElOceano() { @Test METODO vacio
 	public void queSePuedaPresentarBatallaTerrestre() throws VehiculoInexistente, VehiculoIncompatible {
 		FuerzaArmada argentina = new FuerzaArmada();
 
@@ -146,10 +145,6 @@ public class TestCases {
 			System.err.println(vincom);
 		}
 	}
-	
-	public void queSePuedaPlanearLaBatallaSobreElOceano() { //@Test METODO Desarrollado del que estaba incompleto
-	
-	}
 
 	@Test
 	public void queSePuedaPresentarBatallaNaval() throws VehiculoInexistente, VehiculoIncompatible { //si no uso el expected debo tratar con try y catch
@@ -162,7 +157,7 @@ public class TestCases {
 		argentina.agregarVehiculo(new HidroAvion(12, "A-10"));
 		argentina.agregarVehiculo(new Anfibio(13, "A-10"));
 
-		assertEquals((Integer)6, argentina.getCapacidadDeDefensa()); //esperaba 12 pero solo agrega 6 no iba a dar nunca assertEquals y agregar el casteo para manejar Wrapper
+		assertEquals((Integer)6, argentina.getCapacidadDeDefensa()); //esperaba 12 pero solo agrega 6 no iba a dar nunca assertEquals
 		argentina.crearBatalla("Pacifico", TipoDeBatalla.NAVAL, 200.5, 45.8);
 		try {
 		assertTrue(argentina.enviarALaBatalla("Pacifico", 8));
